@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+   <title>Receita 1 - A trova das trovas</title>
+   <style>
+      * {
+         box-sizing: border-box;
+         margin: 0;
+      }
+
+      .row {
+         margin-left: -5px;
+         margin-right: -5px;
+      }
+
+      .column {
+         padding: 5px;
+      }
+
+      .row::after {
+         content: "";
+         clear: both;
+         display: table;
+      }
+
+      .container {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+      }
+
+      .table_container {
+         display: flex;
+         gap: 10px;
+      }
+
+      .title {
+         font-size: 26px;
+         font-weight: bold;
+      }
+
+      .link {
+         color: white;
+         text-decoration: none;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+
+      table,
+      th,
+      td {
+         border: 1px solid black;
+         border-collapse: collapse;
+      }
+
+      th,
+      td {
+         padding: 8px;
+      }
+
+      div {
+         background-color: white;
+         color: black;
+      }
+
+      #customers th {
+         background-color: #1bc0e5;
+      }
+
+      #customers tr:nth-child(even) {
+         background-color: #cacaca;
+      }
+
+      html {
+         width: 98vw;
+         height: 100%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+         background-color: black;
+         color: white;
+      }
+   </style>
+</head>
+
+<body>
+   <img src="https://akamai.sscdn.co/uploadfile/letras/playlists/3/a/b/9/3ab92363f7974d679f4194de9f389b5b.jpg"
+      width="300" />
+
+   <h1>Uma trova...</h1>
+
+   <p>
+      Eu só preciso de hoje<br />
+      Pra viver e ser feliz<br />
+      O passado já me foge<br />
+      E o futuro nada diz!<br />
+   </p>
+
+   <br />
+
+   <p>Autor: Francisco Borges</p>
+
+   <br />
+
+   <div class="row">
+      <div class="column">
+         <div class="container">
+            <div>
+               <h1 class="title">
+                  Tabela Top Ambev's
+               </h1>
+            </div>
+            <div class="table_container">
+               <table id="customers">
+                  <tr>
+                     <th>Bebidas</th>
+                     <th>Preços</th>
+                  </tr>
+                  <tr>
+                     <td>Corona</td>
+                     <td>R$17,90</td>
+                  </tr>
+                  <tr>
+                     <td>Spaten</td>
+                     <td>R$13,90</td>
+                  </tr>
+                  <tr>
+                     <td>Colorado</td>
+                     <td>R$15,90</td>
+                  </tr>
+                  <tr>
+                     <td>Brahma</td>
+                     <td>R$10,90</td>
+                  </tr>
+               </table>
+               <div>
+                  <table id="customers">
+                     <tr>
+                        <th>Bebidas</th>
+                        <th>Preços</th>
+                     </tr>
+                     <tr>
+                        <td>Corona</td>
+                        <td>R$17,90</td>
+                     </tr>
+                     <tr>
+                        <td>Spaten</td>
+                        <td>R$13,90</td>
+                     </tr>
+                     <tr>
+                        <td>Colorado</td>
+                        <td>R$15,90</td>
+                     </tr>
+                     <tr>
+                        <td>Brahma</td>
+                        <td>R$10,90</td>
+                     </tr>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <br>
+
+   <a class="link"
+      href="https://sites.google.com/view/fabricio10/p%C3%A1gina-inicial/cursos/pweb/html-b%C3%A1sico?authuser=0"
+      target="_blank">Link da página da Receita 1</a>
+   <a class="link"
+      href="https://sites.google.com/view/fabricio10/p%C3%A1gina-inicial/cursos/pweb/receita-html-css?authuser=0"
+      target="_blank">Link da página da próxima receita</a>
+</body>
+
+</html>
