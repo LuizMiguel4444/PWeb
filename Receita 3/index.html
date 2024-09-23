@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+</head>
+
+
+
+<body>
+
+    <div>
+        <button id="botaoCarregar">Carregando cervejas...</button>
+    </div>
+
+    <div id="meu amor"></div>
+
+</body>
+
+
+
+<script>
+
+    on = false;
+
+    function carregarDiv() {
+
+        let div = document.getElementById("meu amor")
+
+        if (!on) {
+            div.style.opacity = 1;
+            setTimeout(() => {
+                div.innerHTML = `<h1>Guinness</h1>`;
+            }, 10);
+            on = true;
+        } else {
+            div.innerHTML = "";
+            setTimeout(() => {
+                div.style.opacity = 0;
+            }, 1000);
+            on = false;
+        }
+    }
+
+    let botao = document.getElementById("botaoCarregar")
+
+    botao.onclick = carregarDiv
+
+</script>
+
+</html>
