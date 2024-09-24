@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="meu amor">
+            <a href="#" class="botao" id="linkCarregar">Carregando carros...</a>
+        </div>
+
+        <div>
+            <a href="#" class="botao" id="linkOrdenar">Ordenar</a>
+        </div>
+
+        <div>
+            <a href="#" class="botao" id="linkEmbaralhar">Embaralhar</a>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    let carros = ["911", "GTR", "Urus", "X6", "Uno", "SF90", "Charger"]
+
+    const transformar = items => {
+
+        let tabela = `<table border="1">
+            <thead>
+                <tr><th>Carros</th></tr>
+            </thead>
+            <tbody>
+                ${items.map(car => `<tr><td>${car}</td></tr>`).join('')}
+            </tbody>
+        </table>`;
+
+        return tabela
+
+    }
+
+    const carregarDiv = carros => {
+
+        const div = document.getElementById("meu amor")
+        const carrosHtml = transformar(carros)
+        div.innerHTML = carrosHtml
+
+    }
+
+    const ordenar = () => {
+
+        const carrosOrdenados = [...carros].sort()
+        carregarDiv(carrosOrdenados)
+    
+    }
+
+    const embaralhar = () => {
+    
+        const carrosEmbaralhados = [...carros].sort(() => Math.random() - 0.5)
+        carregarDiv(carrosEmbaralhados)
+    
+    }
+
+    document.getElementById("linkCarregar").addEventListener("click", e => {
+    
+        e.preventDefault()
+        carregarDiv(carros)
+    
+    })
+
+    document.getElementById("linkOrdenar").addEventListener("click", e => {
+    
+        e.preventDefault()
+        ordenar()
+    
+    })
+
+    document.getElementById("linkEmbaralhar").addEventListener("click", e => {
+    
+        e.preventDefault()
+        embaralhar()
+    
+    })
+
+</script>
+
+</html>
