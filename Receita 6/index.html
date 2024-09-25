@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        
+        <div id="cervejasDiv"></div>
+        
+        <div>
+            <button id="botaoCarregar">Carregando cervejas...</button>
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+
+    let cervejas = [
+        {
+            name: "Guiness",
+            alcohol: "10%",
+            style: "Red Ale",
+            ibu: "30"
+        },
+        {
+            name: "Desperados",
+            alcohol: "6%",
+            style: "Cream Ale",
+            ibu: "20"
+        },
+        {
+            name: "Becks",
+            alcohol: "5%",
+            style: "Pilsen",
+            ibu: "45"
+        },
+        {
+            name: "Spaten",
+            alcohol: "8%",
+            style: "APA",
+            ibu: "15"
+        },
+        {
+            name: "Corona",
+            alcohol: "6%",
+            style: "Pilsen",
+            ibu: "25"
+        }
+    ]
+
+    const transformar = (cs, cabecalho, props) => {
+
+        let tabela = `<table border="1">
+            <thead>
+                <tr>
+                    ${cabecalho.map(header => `<th>${header}</th>`).join('')}
+                </tr>
+            </thead>
+            <tbody>
+                ${cs.map(cervejas => 
+                    `<tr>
+                        ${props.map(prop => `<td>${cervejas[prop] || 'N/A'}</td>`).join('')}
+                    </tr>`).join('')}
+            </tbody>
+        </table>`;
+
+        return tabela
+
+    }
+
+    //cs é um array de cervejas
+
+    const carregarDiv = (
+            cs,
+            IdDefault = "cervejasDiv",
+            cabecalho = ["Nome", "Álcool", "Estilo", "Amargor"],
+            props = ["name", "alcohol", "style", "ibu"]
+        ) => {
+
+        const div = document.getElementById(IdDefault)
+        const tableHtml = transformar(cs, cabecalho, props)
+        div.innerHTML = tableHtml
+
+    }
+
+    let botao = document.getElementById("botaoCarregar")
+    botao.addEventListener("click", () => carregarDiv(cervejas))
+
+</script>
+
+</html>
