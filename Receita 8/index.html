@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div id="tabelas" class="container">
+        <div id="cervejasDiv"></div>
+        <div id="usersDiv"></div>
+    </div>
+
+    <div class="botao">
+        <button id="botaoCarregarTabelas">Carregar Tabelas</button>
+    </div>
+
+</body>
+
+<script type="module">
+
+    import { criarTabela } from './tabela.js';
+
+    let cervejas = []
+    let users = []
+
+    const carregarDiv = (itens, Id, cabecalho, props) => {
+        const div = document.getElementById(Id)
+        const tableHtml = criarTabela(itens, cabecalho, props)
+        div.innerHTML = tableHtml
+    }
+
+    function carregarDados() {
+        Promise.all([
+            fetch("https://random-data-api.com/api/v2/beers?size=10"),
+            fetch("https://random-data-api.com/api/v2/users?size=10")
+        ])
+            .then(responses => Promise.all(responses.map(res => res.json())))
+            .then(([cervejasData, usersData]) => {
+                cervejas = cervejasData;
+                users = usersData;
+
+                carregarDiv(
+                    cervejas,
+                    "cervejasDiv",
+                    ["Nome", "Álcool", "Estilo", "Amargor", "Lúpulo", "Malte"],
+                    ["name", "alcohol", "style", "ibu", "hop", "malts"]
+                );
+
+                carregarDiv(
+                    users,
+                    "usersDiv",
+                    ["Nome", "Sobrenome", "Usuário", "Aniversário", "Gênero"],
+                    ["first_name", "last_name", "username", "date_of_birth", "gender"]
+                );
+            })
+            .catch(error => {
+                console.error("Erro ao carregar dados: ", error);
+            });
+    }
+
+    let botao = document.getElementById("botaoCarregarTabelas");
+    botao.addEventListener("click", carregarDados);
+
+</script>
+
+</html>
