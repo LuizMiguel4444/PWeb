@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>ReactZero</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    
+    <h1>Cerveja x Classe Social</h1>
+    
+    <div id="app"></div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+
+    <script>
+        ReactDOM.render(
+            React.createElement(
+                'table',
+                { id: 'tabela', border: '1'},
+                React.createElement(
+                    'tr',
+                    null,
+                    React.createElement('th', null, 'Pobre'),
+                    React.createElement('th', null, 'Rico'),
+                ),
+                React.createElement(
+                    'tr',
+                    null,
+                    React.createElement('td', null, 'Lokal'),
+                    React.createElement('td', null, 'Colorado'),
+                ),
+                React.createElement(
+                    'tr',
+                    null,
+                    React.createElement('td', null, 'Glacial'),
+                    React.createElement('td', null, 'Stella'),
+                ),
+                React.createElement(
+                    'tr',
+                    null,
+                    React.createElement('td', null, 'Schin'),
+                    React.createElement('td', null, 'Corona'),
+                ),
+            ),
+            document.getElementById("app"))
+    </script>
+</body>
+
+</html>
