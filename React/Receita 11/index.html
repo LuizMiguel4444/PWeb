@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Recipe 11</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+
+    <script type="text/babel">
+        class TabelaBebidas extends React.Component {
+            render() {
+                return (
+                    <div id="table">
+                        <h1>{this.props.titulo}</h1>
+                        <table id="tabela" border="1">
+                            <thead>
+                                <tr>
+                                    <th>Bebidas</th>
+                                    <th>Preços</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Corona</td>
+                                    <td>R$17,90</td>
+                                </tr>
+                                <tr>
+                                    <td>Spaten</td>
+                                    <td>R$13,90</td>
+                                </tr>
+                                <tr>
+                                    <td>Colorado</td>
+                                    <td>R$15,90</td>
+                                </tr>
+                                <tr>
+                                    <td>Brahma</td>
+                                    <td>R$10,90</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                );
+            }
+        }
+
+        class ClickCounterComponent extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    clickCount: 0
+                };
+            }
+
+            handleButtonClick = () => {
+                this.setState((prevState) => ({
+                    clickCount: prevState.clickCount + 1
+                }));
+            }
+
+            render() {
+                const { clickCount } = this.state;
+
+                return (
+                    <div className="click-counter-component">
+                        <h2>Contador de Cliques</h2>
+                        <p>Total de cliques: {clickCount}</p>
+                        <button onClick={this.handleButtonClick}>
+                            Clique Aqui
+                        </button>
+                    </div>
+                );
+            }
+        }        
+
+        ReactDOM.render(
+            <div>
+                <TabelaBebidas titulo="Tabela de Cervejas" />
+                <ClickCounterComponent />
+            </div>,
+            document.getElementById("app")
+        );
+    </script>
+</body>
+
+</html>

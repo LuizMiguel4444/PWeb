@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 3px solid black;
+    text-align: center;
+    padding: 20px;
+}
+
+thead {
+    background-color: steelblue;
+    color: black;
+}
+
+.click-counter-component {
+    background-color: steelblue;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 30px;
+}
+
+.click-counter-component button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.click-counter-component button:hover {
+    background-color: darkgrey;
+}
