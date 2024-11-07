@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Receita 12 </title>
+    <link href="style.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+
+    <script type="text/babel">
+        const TabelaCervejas = ({ titulo, cabecalhos, conteudos }) => {
+            return (
+                <div>
+                    <h1>{titulo}</h1>
+                    <table id="tabela" border="1">
+                        <thead>
+                            <tr>
+                                {cabecalhos.map((cabecalho, index) => (
+                                    <th key={index}>{cabecalho}</th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {conteudos.map((linha, index) => (
+                                <tr key={index}>
+                                    {linha.map((valor, innerIndex) => (
+                                        <td key={innerIndex}>{valor}</td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        }
+
+        const listaCabecalhos = ["Nome", "Marca", "Tipo", "Teor Alcoólico"];
+        const listaConteudos = [
+            ["Brahma", "Ambev", "Lager", "5%"],
+            ["Original", "Ambev", "Pilsen", "5.1%"],
+            ["Bohemia", "Ambev", "Pilsen", "5%"],
+            ["Skol", "Ambev", "Pilsen", "4.7%"],
+            ["Antarctica", "Ambev", "Pilsen", "4.9%"],
+            ["Colorado", "Ambev", "IPA", "7%"],
+        ];
+
+        ReactDOM.render(
+            <TabelaCervejas titulo="Tabela de Cervejas" cabecalhos={listaCabecalhos} conteudos={listaConteudos} />,
+            document.getElementById("app")
+        );
+    </script>
+</body>
+
+</html>
