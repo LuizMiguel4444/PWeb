@@ -18,7 +18,7 @@ export default function Home() {
 
       try {
         const httpRes = await fetch(
-          `http://www.omdbapi.com/?apikey=f1cbc41e&s=${titleSearchKey}`
+          `http://www.omdbapi.com/?apikey=8b230325&s=${titleSearchKey}&type=movie`
         );
         const jsonRes = await httpRes.json();
         setResultMovies(jsonRes.Search || []);
@@ -42,7 +42,6 @@ export default function Home() {
       </div>
 
       <div className="max-w-4xl mx-auto mt-8">
-        {/* Renderiza MovieTable apenas se a pesquisa for concluída */}
         {hasSearched && !isLoading && <MovieTable movies={resultMovies} />}
       </div>
     </div>
